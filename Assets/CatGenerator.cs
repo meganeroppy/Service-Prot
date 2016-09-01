@@ -13,8 +13,11 @@ class CatGenerator : MonoBehaviour{
 	/* 猫 */
 	public GameObject catPrefab;
 
-	/* 猫を生成 param@isMine = 自分が生成した猫か？ */
-	public void Make(bool isMine){
+	/// <summary>
+	///  猫を生成
+	/// </summary>
+	/// <param name="isMine">自分が生成した猫か？</param>
+	public void Make(bool isMine=true){
 		int idx = isMine ? 0 : Random.Range( 1, origin.Length );
 		Transform t = origin[ idx ];
 		GameObject c = Instantiate( catPrefab );

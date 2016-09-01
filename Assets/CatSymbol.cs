@@ -36,9 +36,10 @@ class CatSymbol : MonoBehaviour{
 		UpdateSize( newScale );
 	}
 
-		/* 猫が飛び込んで大きくなる 最初の一回行こうのサイズ変更は基本的にこっちを使う*/
-		void OnTriggerEnter(Collider col){
-		if( !col.tag.Equals("cat") ){
+	/* 猫が飛び込んで大きくなる 最初の一回以降のサイズ変更は基本的にこっちを使う*/
+	void OnTriggerEnter(Collider col){
+		print("!");
+		if( !col.tag.Equals("Cat") ){
 			return;	
 		}
 

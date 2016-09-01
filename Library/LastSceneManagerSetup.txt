@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/APITest.unity
+- path: Assets/CatViewer.unity
   isLoaded: 1
   isActive: 1

@@ -10,8 +10,8 @@ class CatNode : MonoBehaviour{
 
 	/* 移動速度 */
 	private float spd;
-	private const float SPD_MAX = 1f;
-	private const float SPD_MIN = 0.5f;
+	private const float SPD_MAX = 5f;
+	private const float SPD_MIN = 2f;
 
 	// 猫の大きさリスト　0番目は子猫
 	private float[] scaleList = new float[5]{0.65f, 0.9f, 1f, 1.1f, 1.2f};

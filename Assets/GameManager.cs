@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour{
 	/* 猫一匹あたりの体長増加量 Height Per Cat */
 	const float hpc =0.001f; 
 
+	private CatGenerator generator;
+
 	/* サーバー上の値を取得する頻度 */
 	const int RELOAD_INTERVAL = 5;
 	float reload_timer = 0;
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour{
 
 	void Awake(){
 		api = GetComponent<APIManager>();
+		generator = GetComponent<CatGenerator>();
 	}
 
 	void Start(){
@@ -56,6 +59,8 @@ public class GameManager : MonoBehaviour{
 		}
 
 		cat_num++;
+
+		generator.Make();
 
 		long data = cat_num;
 
