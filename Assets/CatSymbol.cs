@@ -20,6 +20,7 @@ class CatSymbol : MonoBehaviour{
 
 	void Awake(){
 		audio = GetComponent<AudioSource>();
+		scale = transform.localScale.x;
 	}	
 
 	/* サイズを変更 */
@@ -32,7 +33,7 @@ class CatSymbol : MonoBehaviour{
 
 		/* 猫一匹追加 */
 		private void AddCat(){
-		float newScale = spc;
+		float newScale = scale + spc;
 		UpdateSize( newScale );
 	}
 
