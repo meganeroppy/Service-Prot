@@ -16,7 +16,7 @@ class CatSymbol : MonoBehaviour{
 	private float scale;
 
 	/* ねこ一匹で増えるスケール */
-	private const float spc = 0.5f;
+	private const float spc = 0.25f;
 
 	void Awake(){
 		audio = GetComponent<AudioSource>();
@@ -31,9 +31,9 @@ class CatSymbol : MonoBehaviour{
 		transform.DOScale( scale , 1f);
 	}
 
-		/* 猫一匹追加 */
-		private void AddCat(){
-		float newScale = scale + spc;
+	/* 猫追加 */
+	public void AddCat(int num=1){
+		float newScale = scale + (spc * num);
 		UpdateSize( newScale );
 	}
 

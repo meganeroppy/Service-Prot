@@ -2,7 +2,8 @@
 using System.Collections;
 
 /* 全体管理 */
-public class GameManager : MonoBehaviour{
+public class GameManager : MonoBehaviour
+{
 	/* ローカルでの体長 */
 	private float height = 0.1f;
 	/* ローカルでの吸収した猫の数 */
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour{
 	const float hpc =0.001f; 
 
 	private CatGenerator generator;
+
+	private CatSymbol cs;
 
 	/* サーバー上の値を取得する頻度 */
 	const int RELOAD_INTERVAL = 5;
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour{
 	void Awake(){
 		api = GetComponent<APIManager>();
 		generator = GetComponent<CatGenerator>();
+		cs = GameObject.Find("CatSymbol").GetComponent<CatSymbol>();
 	}
 
 	void Start(){
@@ -94,6 +98,7 @@ public class GameManager : MonoBehaviour{
 
 		if( !reloadOnce ){
 			reloadOnce = true;
+			cs.AddCat(cat_num);
 		}
 	}
 
