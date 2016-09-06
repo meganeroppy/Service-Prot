@@ -24,10 +24,11 @@ class CatNode : MonoBehaviour{
 		float scale = scaleList[ idx ];
 		transform.localScale *= scale;
 
+		// idxが0の時は子猫SE
 		idx = idx == 0 ? 0 : Random.Range(1, se.Length);
 
 		// 登場時SEを再生
-//		GetComponent<AudioSource>().PlayOneShot( se[idx] );
+		GetComponent<AudioSource>().PlayOneShot( se[idx] );
 
 		// 歩きアニメを再生	
 		GetComponent<Animator>().SetInteger("Status", 2);

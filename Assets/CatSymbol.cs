@@ -12,40 +12,47 @@ class CatSymbol : MonoBehaviour{
 
 	private AudioSource audio;
 
+	private Transform model;
+
 	/* 現在のスケール */
 	private float scale;
 
 	/* ねこ一匹で増えるスケール */
 	private const float spc = 0.25f;
 
-	void Awake(){
+	void Awake()
+	{
 		audio = GetComponent<AudioSource>();
-		scale = transform.localScale.x;
+		model = transform.FindChild("Model");
+		scale = model.transform.localScale.x;
 	}	
 
 	/* サイズを変更 */
-	public void UpdateSize(float newScale){
+	public void UpdateSize(float newScale)
+	{
 		scale = newScale;
 
 		// ちょっとボヨンとした表現
-		transform.DOScale( scale , 1f);
+		model.transform.DOScale( scale , 1f);
 	}
 
 	/* 猫追加 */
-	public void AddCat(int num=1){
+	public void AddCat(int num=1)
+	{
 		float newScale = scale + (spc * num);
 		UpdateSize( newScale );
 	}
 
 	/* 猫が飛び込んで大きくなる 最初の一回以降のサイズ変更は基本的にこっちを使う*/
-	void OnTriggerEnter(Collider col){
-		print("!");
-		if( !col.tag.Equals("Cat") ){
+	void OnTriggerEnter(Collider col)
+	{
+		if( !col.tag.Equals("Cat") )
+		{
 			return;	
 		}
 
 		// 吸収エフェクト
-		Instantiate(efx, col.gameObject.transform.position, col.gameObject.transform.rotation);
+		Instantiate(efx, col.gameObject.transform.position, Quaternion.Euler(-90f, 0, 0) );
 
 		// 子猫消滅
 		Destroy( col.gameObject );
