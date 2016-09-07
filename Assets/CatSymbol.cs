@@ -4,13 +4,9 @@ using DG.Tweening;
 /* 集計数をビジュアライズする大きい猫 */
 class CatSymbol : MonoBehaviour{
 
-	/* ねこ吸収時効果音 */
-	public AudioClip se_gain;
-
 	/* ねこ吸収時のエフェクト */
-	public GameObject efx;
-
-	private AudioSource audio;
+	[SerializeField]
+	private GameObject efx;
 
 	private Transform model;
 
@@ -18,11 +14,14 @@ class CatSymbol : MonoBehaviour{
 	private float scale;
 
 	/* ねこ一匹で増えるスケール */
-	private const float spc = 0.25f;
+	private const float SPC = 0.217f;
+
+	/* 情報テキスト */
+	[SerializeField]
+	private InfoText info;
 
 	void Awake()
 	{
-		audio = GetComponent<AudioSource>();
 		model = transform.FindChild("Model");
 		scale = model.transform.localScale.x;
 	}	
@@ -34,12 +33,18 @@ class CatSymbol : MonoBehaviour{
 
 		// ちょっとボヨンとした表現
 		model.transform.DOScale( scale , 1f);
+
+		// 情報テキスト更新
+		float num = scale;
+		num = ( Mathf.Round( num * 10) ) / 100;
+		string str =  "CAT:" + num.ToString() + " M";
+		info.UpDateLabel(str);
 	}
 
 	/* 猫追加 */
 	public void AddCat(int num=1)
 	{
-		float newScale = scale + (spc * num);
+		float newScale = scale + (SPC * num);
 		UpdateSize( newScale );
 	}
 
