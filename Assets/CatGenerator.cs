@@ -45,8 +45,8 @@ class CatGenerator : MonoBehaviour{
 	///  猫を生成
 	/// </summary>
 	/// <param name="isMine">自分が生成した猫か？</param>
-	public void ExecuteMake(bool isMine=true){
-		int originPosIdx = isMine ? 0 : Random.Range( 1, origin.Length );
+	public void ExecuteMake(bool isMine=false){
+		int originPosIdx = isMine ? 0 : Random.Range( 0, origin.Length );
 
 		Transform t = origin[ originPosIdx ];
 		GameObject c = Instantiate( catPrefab );
