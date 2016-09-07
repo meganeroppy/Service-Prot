@@ -64,8 +64,6 @@ public class GameManager : MonoBehaviour
 
 		cat_num++;
 
-		generator.Make();
-
 		long data = cat_num;
 
 		waiting_set = true;
@@ -93,6 +91,14 @@ public class GameManager : MonoBehaviour
 			
 		if( cat_num != cat_num_prev){
 			Debug.Log("サーバー上の猫の数に変化がありました。サーバー上の猫の数 = " + cat_num );
+			if( reloadOnce ){
+				if( cat_num > cat_num_prev ){
+					int diff = cat_num - cat_num_prev;
+					generator.Make(diff);
+				}else{
+					Debug.LogWarningFormat("猫の数が減少した時の処理が未定義 猫の数{0}->{1}", cat_num_prev, cat_num);
+				}
+			}
 		}
 		cat_num_prev = cat_num;
 
