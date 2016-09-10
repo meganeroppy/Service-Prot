@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour
 
 	}
 
+	public void UserInput()
+	{
+		StartCoroutine( AddCat() );
+	}
+
 	public IEnumerator AddCat(){
 
 		if( waiting_set || !reloadOnce){

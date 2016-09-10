@@ -25,6 +25,8 @@ class CatGenerator : MonoBehaviour{
 			if(timer <= 0){
 				ExecuteMake();
 				cat_pending--;
+				Debug.LogFormat("生成待ちの猫から生成して合計{0}匹", cat_pending);
+
 				timer = makeInterval;
 			}else{
 				timer -= Time.deltaTime;

@@ -1,13 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CatSymbol.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ScreenButton.cs">
     <Files>
-      <File FileName="Assets/APItest.cs" Line="102" Column="58" />
-      <File FileName="Assets/GameManager.cs" Line="71" Column="1" />
-      <File FileName="Assets/InputManager.cs" Line="10" Column="1" />
-      <File FileName="Assets/APIManager.cs" Line="49" Column="2" />
-      <File FileName="Assets/CatNode.cs" Line="11" Column="12" />
-      <File FileName="Assets/CatSymbol.cs" Line="18" Column="20" />
+      <File FileName="Assets/CatGenerator.cs" Line="28" Column="38" />
+      <File FileName="Assets/APItest.cs" Line="1" Column="1" />
+      <File FileName="Assets/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/InputManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/APIManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/CatNode.cs" Line="1" Column="1" />
+      <File FileName="Assets/CatSymbol.cs" Line="1" Column="1" />
+      <File FileName="Assets/ScreenButton.cs" Line="9" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
